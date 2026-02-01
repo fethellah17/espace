@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Elegant Pink Perfume Palette */
+    --background: 20 30% 98%;
+    --foreground: 340 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 30% 15%;
+
+    /* Deep Rose Primary */
+    --primary: 340 45% 35%;
+    --primary-foreground: 20 30% 98%;
+
+    /* Soft Blush */
+    --secondary: 350 30% 95%;
+    --secondary-foreground: 340 30% 15%;
+
+    --muted: 350 20% 93%;
+    --muted-foreground: 340 15% 45%;
+
+    /* Rose Gold Accent */
+    --accent: 15 55% 65%;
+    --accent-foreground: 340 30% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 20 30% 98%;
+
+    --border: 350 25% 90%;
+    --input: 350 25% 90%;
+    --ring: 15 55% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --rose-gold: 15 55% 65%;
+    --rose-gold-light: 15 60% 75%;
+    --rose-gold-dark: 15 45% 55%;
+    
+    --pink-deep: 340 45% 35%;
+    --pink-dark: 340 40% 25%;
+    --pink-medium: 340 35% 50%;
+    --pink-soft: 350 40% 85%;
+    --pink-blush: 350 35% 92%;
+    
+    --cream: 20 30% 98%;
+    --cream-dark: 20 20% 94%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(340 45% 35%) 0%, hsl(340 40% 25%) 100%);
+    --gradient-rose: linear-gradient(135deg, hsl(15 55% 65%) 0%, hsl(15 60% 75%) 100%);
+    --gradient-overlay: linear-gradient(to top, hsl(340 45% 35% / 0.9), transparent);
+
+    /* Shadows */
+    --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.03);
+    --shadow-elevated: 0 10px 40px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 30px hsl(15 55% 65% / 0.2);
+    --shadow-pink: 0 10px 40px hsl(340 45% 35% / 0.15);
+
+    /* Font families */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  .dark {
+    --background: 340 30% 5%;
+    --foreground: 20 30% 95%;
+
+    --card: 340 25% 8%;
+    --card-foreground: 20 30% 95%;
+
+    --popover: 340 25% 8%;
+    --popover-foreground: 20 30% 95%;
+
+    --primary: 20 30% 95%;
+    --primary-foreground: 340 45% 35%;
+
+    --secondary: 340 30% 12%;
+    --secondary-foreground: 20 30% 95%;
+
+    --muted: 340 25% 15%;
+    --muted-foreground: 350 15% 60%;
+
+    --accent: 15 55% 65%;
+    --accent-foreground: 340 30% 15%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 20 30% 95%;
+
+    --border: 340 20% 18%;
+    --input: 340 20% 18%;
+    --ring: 15 55% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+
+  ::selection {
+    @apply bg-pink-deep text-rose-gold-light;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-rose {
+    background: var(--gradient-rose);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-pink {
+    box-shadow: var(--shadow-pink);
+  }
+
+  .text-rose-gold {
+    color: hsl(var(--rose-gold));
+  }
+
+  .text-rose-gold-light {
+    color: hsl(var(--rose-gold-light));
+  }
+
+  .bg-rose-gold {
+    background-color: hsl(var(--rose-gold));
+  }
+
+  .border-rose-gold {
+    border-color: hsl(var(--rose-gold));
+  }
+
+  .text-pink-deep {
+    color: hsl(var(--pink-deep));
+  }
+
+  .bg-pink-deep {
+    background-color: hsl(var(--pink-deep));
+  }
+
+  .bg-pink-soft {
+    background-color: hsl(var(--pink-soft));
+  }
+
+  .bg-pink-blush {
+    background-color: hsl(var(--pink-blush));
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .text-cream {
+    color: hsl(var(--cream));
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 bg-cream text-pink-deep text-sm font-medium rounded-full 
+           hover:bg-white transition-all duration-300 shadow-glow;
+  }
+
+  .btn-outline {
+    @apply px-8 py-4 border border-cream/30 text-cream text-sm font-medium rounded-full 
+           hover:border-cream/50 hover:bg-cream/5 transition-all duration-300;
+  }
+
+  .btn-cart {
+    @apply w-full py-3 border border-border text-pink-deep text-xs font-medium uppercase tracking-wide rounded 
+           hover:bg-pink-deep hover:text-cream hover:border-pink-deep transition-all duration-300;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-serif text-pink-deep tracking-tight;
+  }
+
+  .category-card {
+    @apply relative rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500;
+  }
+
+  .product-card {
+    @apply bg-card rounded-2xl p-4 shadow-soft hover:shadow-elevated transition-all duration-300;
+  }
+}
